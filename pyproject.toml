@@ -21,3 +21,13 @@ build-backend = "uv_build"
 dev = [
     "pytest>=9.1.1",
 ]
+    "poethepoet>=0.49.0",
+    "ruff>=0.17.3",
+    "ty>=0.0.95",
+]
+
+[tool.poe.tasks]
+format = "ruff format ."
+lint = "ruff check ."
+typecheck = "ty check ."  # Ajout de 'check .' au lieu de 'ty' seul
+check = ["lint", "typecheck"]
